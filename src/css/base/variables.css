@@ -1,0 +1,114 @@
+:root {
+    
+  --color-primary: #00d4ff;
+  --color-primary-dark: #00b8e6;
+  --color-primary-light: #33ddff;
+  
+  --color-secondary: #2c5364;
+  --color-secondary-dark: #203a43;
+  --color-secondary-light: #3c6378;
+  
+  --color-bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --color-surface: #1e2a38;
+  --color-surface-dark: #2e3b4e;
+  --color-surface-darker: #253347;
+  --color-surface-light: #364657;
+  
+  --color-text: #f0f4f8;
+  --color-text-muted: #a0aec0;
+  --color-text-dark: #cbd5e0;
+  --color-text-inverse: #1e2a38;
+  
+  --color-success: #10b981;
+  --color-success-dark: #059669;
+  --color-success-light: #34d399;
+  
+  --color-error: #ef4444;
+  --color-error-dark: #dc2626;
+  --color-error-light: #f87171;
+  
+  --color-warning: #f59e0b;
+  --color-warning-dark: #d97706;
+  --color-warning-light: #fbbf24;
+  
+  --color-info: #3b82f6;
+  --color-info-dark: #2563eb;
+  --color-info-light: #60a5fa;
+  
+  --color-border: #4a5568;
+  --color-border-light: #cbd5e0;
+  
+  --spacing-xs: 0.25rem; 
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;     
+  --spacing-lg: 1.5rem;  
+  --spacing-xl: 2rem;     
+  --spacing-2xl: 3rem;     
+  --spacing-3xl: 4rem;   
+  
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.4);
+  
+  --shadow-primary: 0 4px 12px rgba(0, 212, 255, 0.3);
+  --shadow-success: 0 4px 12px rgba(16, 185, 129, 0.3);
+  --shadow-error: 0 4px 12px rgba(239, 68, 68, 0.3);
+  
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  --transition-all: all var(--transition-base);
+  --transition-transform: transform var(--transition-fast);
+  --transition-opacity: opacity var(--transition-fast);
+  --transition-colors: color var(--transition-base), 
+                       background-color var(--transition-base), 
+                       border-color var(--transition-base);
+  
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-mono: 'Courier New', Courier, monospace;
+  
+  --font-size-xs: 0.75rem;     
+  --font-size-sm: 0.875rem;    
+  --font-size-base: 1rem;      
+  --font-size-lg: 1.125rem;    
+  --font-size-xl: 1.25rem;     
+  --font-size-2xl: 1.5rem;    
+  --font-size-3xl: 2rem;      
+  --font-size-4xl: 2.5rem;    
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
