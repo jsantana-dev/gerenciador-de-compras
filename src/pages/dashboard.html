@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gerenciador de Compras</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="max-w-2xl">
+        <header>
+            <h1>Gerenciador de Compras</h1>
+            <p>Adicione, edite e gerencie suas compras pessoais</p>
+
+            <a href="perfil.html" class="perfil-container">
+                <span>Meu Perfil</span>
+            </a>
+        </header>
+
+        <main>
+            <!-- Adição de Compras -->
+            <section>
+                <h2>Adicionar Compra</h2>
+
+                <form id="form-compra">
+                    <input type="text" id="produto" placeholder="Produto" required />
+                    <input type="number" id="quantidade" placeholder="Quantidade" required step="1" min="1" />
+                    <input type="number" id="preco" placeholder="Preço" required min="0" step="0.01" />
+
+                    <!-- Prioridade -->
+                    <fieldset>
+                        <legend>Prioridade</legend>
+                        <label>
+                            <span>Alta</span>
+                            <input type="radio" name="prioridade" value="Alta" required />
+                        </label>
+                        <label>
+                            <span>Média</span>
+                            <input type="radio" name="prioridade" value="Média" required checked />
+                        </label>
+                        <label>
+                            <span>Baixa</span>
+                            <input type="radio" name="prioridade" value="Baixa" required />
+                        </label>
+                    </fieldset>
+
+                    <button type="submit">Adicionar</button>
+                </form>
+            </section>
+
+            <!-- Conversor de Moeda -->
+            <section class="card-bloco">
+                <label for="moeda">Converter para:</label>
+                <select id="moeda">
+                    <option value="BRL" selected>BRL (Real)</option>
+                    <option value="USD">USD (Dólar)</option>
+                    <option value="EUR">EUR (Euro)</option>
+                    <option value="GBP">GBP (Libra)</option>
+                </select>
+                <span id="taxa-conversao" style="margin-left: 8px; font-size: 0.9rem; color: #aaa;"></span>
+            </section>
+
+            <!-- Campo de Busca -->
+            <section class="card-bloco">
+                <input type="text" id="busca" placeholder="Buscar produto..." class="input-destacado" />
+            </section>
+
+            <!-- Lista de Compras -->
+            <section>
+                <h2>Lista de Compras</h2>
+
+                <!-- Botões de editar e excluir -->
+                <div class="btn-toolbar">
+                    <button id="btn-delete" class="btn-acao" title="Excluir itens selecionados" style="display:none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 18M6 6h12M9 6v12m6-12v12" />
+                        </svg>
+                        <span>Excluir</span>
+                    </button>
+
+                    <button id="btn-edit" class="btn-acao" title="Editar item selecionado" style="display:none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536M9 11l3 3 7.5-7.5a2.121 2.121 0 00-3-3L9 11zM4 20h7" />
+                        </svg>
+                        <span>Editar</span>
+                    </button>
+
+                    <button id="btn-toggle-select" class="btn-acao" title="Selecionar itens">Selecionar</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="th-select" style="display:none; width: 40px;"></th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                            <th>Prioridade</th>
+                            <th id="th-data">Data</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-compras">
+                        <!--Itens aqui com uso de JS-->
+                    </tbody>
+                </table>
+            </section>
+
+            <div id="total-gasto">
+                Total Gasto: R$ 0,00
+            </div>
+
+            <!-- Integração com API -->
+            <section class="card-bloco">
+                <h2>Produtos da Loja</h2>
+                <button class="btn-acao" id="btn-carregar">Carregar Produtos</button>
+                <input type="text" id="filtro-api" placeholder="Filtrar por nome ou categoria..."
+                    class="input-destacado" />
+                <div class="grid-api" id="produtos-api"></div>
+            </section>
+
+            <!-- Wishlist -->
+            <section class="card-bloco">
+                <h2>Wishlist</h2>
+                <button class="btn-acao" onclick="exibirWishlist()">Ver Wishlist</button>
+                <div id="wishlist-container" class="grid-api"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/compras.js"></script>
+    <script src="js/api.js"></script>
+</body>
+
+</html>
