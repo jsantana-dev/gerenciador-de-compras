@@ -1,49 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gerenciador de Compras</title>
-
-  <link rel="stylesheet" href="css/auth.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gerencie suas compras pessoais de forma simples e eficiente">
+  <meta name="theme-color" content="#00d4ff">
+  <title>Login - Gerenciador de Compras</title>
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-  <header>
-    <h1>Gerenciador de Compras</h1>
-  </header>
+<body class="auth-page">
+  
+  <div class="auth-container">
+    <header class="auth-header">
+      <h1>🛒 Gerenciador de Compras</h1>
+      <p>Organize suas compras de forma inteligente</p>
+    </header>
 
-  <main>
-    <!-- Seção de Login -->
-    <section id="login" class="auth-section">
-      <h2>Faça seu login</h2>
-      <div class="error" id="loginErro"></div>
-      <input type="email" id="loginEmail" placeholder="Email" required />
-      <input type="password" id="loginSenha" placeholder="Senha" required />
-      <button id="btn-login">Entrar</button>
-      <a href="#" id="link-esqueceu-senha">Esqueceu a senha?</a>
-      <br />
-      <button id="btn-cadastro">Cadastrar-se</button>
-    </section>
+    <main>
+      <!-- login -->
+      <section id="login-section" class="auth-section">
+        <h2>Faça seu login</h2>
+        
+        <form id="login-form" class="auth-form" novalidate>
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input 
+              type="email" 
+              id="login-email" 
+              name="email"
+              placeholder="seu@email.com" 
+              required 
+              autocomplete="email"
+              aria-describedby="login-email-error"
+            />
+            <span class="error-message" id="login-email-error"></span>
+          </div>
 
-    <!-- Seção de Cadastro -->
-    <section id="cadastro" class="auth-section" style="display:none;">
-      <h2>Cadastro</h2>
-      <div class="error" id="cadastroErro"></div>
-      <input type="text" id="cadastroNome" placeholder="Nome" required />
-      <input type="email" id="cadastroEmail" placeholder="Email" required />
-      <input type="password" id="cadastroSenha" placeholder="Senha" required />
-      <button id="btn-cadastrar">Cadastrar</button>
-      <br />
-      <button id="btn-voltar">Voltar ao Login</button>
-    </section>
-  </main>
+          <div class="form-group">
+            <label for="login-password">Senha</label>
+            <input 
+              type="password" 
+              id="login-password" 
+              name="password"
+              placeholder="••••••••" 
+              required 
+              autocomplete="current-password"
+              aria-describedby="login-password-error"
+            />
+            <span class="error-message" id="login-password-error"></span>
+          </div>
 
-  <footer>
-    <p>&copy; 2025 Gerenciador de Compras. Todos os direitos reservados.</p>
-  </footer>
+          <button type="submit" class="btn btn-primary btn-block">
+            <span>Entrar</span>
+          </button>
+        </form>
 
-  <script src="js/storage.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/main.js"></script>
+        <div class="auth-links">
+          <a href="#" id="forgot-password-link" class="text-link">Esqueceu a senha?</a>
+          <div class="divider">
+            <span>ou</span>
+          </div>
+          <button id="show-register-btn" class="btn btn-secondary btn-block">
+            Criar nova conta
+          </button>
+        </div>
+      </section>
+
+      <!-- cadastro -->
+      <section id="register-section" class="auth-section" style="display: none;">
+        <h2>Criar conta</h2>
+        
+        <form id="register-form" class="auth-form" novalidate>
+          <div class="form-group">
+            <label for="register-name">Nome completo</label>
+            <input 
+              type="text" 
+              id="register-name" 
+              name="name"
+              placeholder="João Silva" 
+              required 
+              autocomplete="name"
+              aria-describedby="register-name-error"
+            />
+            <span class="error-message" id="register-name-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Email</label>
+            <input 
+              type="email" 
+              id="register-email" 
+              name="email"
+              placeholder="seu@email.com" 
+              required 
+              autocomplete="email"
+              aria-describedby="register-email-error"
+            />
+            <span class="error-message" id="register-email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="register-password">Senha</label>
+            <input 
+              type="password" 
+              id="register-password" 
+              name="password"
+              placeholder="Mínimo 6 caracteres" 
+              required 
+              autocomplete="new-password"
+              minlength="6"
+              aria-describedby="register-password-error"
+            />
+            <span class="error-message" id="register-password-error"></span>
+            <small class="form-hint">Mínimo 6 caracteres</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span>Cadastrar</span>
+          </button>
+        </form>
+
+        <div class="auth-links">
+          <button id="show-login-btn" class="btn btn-text">
+            ← Voltar ao login
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="auth-footer">
+      <p>&copy; 2025 Gerenciador de Compras. Todos os direitos reservados.</p>
+      <p class="warning-text">
+        ⚠️ Projeto educacional - Não use para dados sensíveis
+      </p>
+    </footer>
+  </div>
+
+  <div id="global-loader" class="loader-overlay" style="display: none;">
+    <div class="loader"></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
