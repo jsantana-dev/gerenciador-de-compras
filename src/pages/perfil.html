@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gerenciar perfil do usuário">
+  <meta name="theme-color" content="#00d4ff">
+  <title>Perfil - Gerenciador de Compras</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="perfil-page">
+  
+  <div class="perfil-container">
+    <header class="perfil-header">
+      <h1>👤 Meu Perfil</h1>
+      <a href="dashboard.html" class="btn btn-secondary btn-sm">
+        ← Voltar ao Dashboard
+      </a>
+    </header>
+
+    <main>
+      <section class="card perfil-card">
+        <div class="card-header">
+          <h2>Informações da Conta</h2>
+        </div>
+        
+        <div class="card-body">
+          <!-- Avatar Section -->
+          <div class="avatar-section">
+            <div class="avatar-placeholder">
+              <span id="avatar-initials">?</span>
+            </div>
+            <p class="avatar-hint">Avatar gerado automaticamente</p>
+          </div>
+
+          <form id="perfil-form" class="perfil-form" novalidate>
+            <div class="form-group">
+              <label for="perfil-nome">Nome completo</label>
+              <input 
+                type="text" 
+                id="perfil-nome" 
+                name="nome"
+                placeholder="João Silva" 
+                required 
+                autocomplete="name"
+                aria-describedby="perfil-nome-error"
+              />
+              <span class="error-message" id="perfil-nome-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="perfil-email">Email</label>
+              <input 
+                type="email" 
+                id="perfil-email" 
+                name="email"
+                placeholder="seu@email.com" 
+                required 
+                autocomplete="email"
+                readonly
+                aria-describedby="perfil-email-error"
+              />
+              <small class="form-hint">O email não pode ser alterado</small>
+              <span class="error-message" id="perfil-email-error"></span>
+            </div>
+
+            <div class="form-divider">
+              <span>Segurança</span>
+            </div>
+
+            <div class="form-group">
+              <label for="perfil-senha">Nova senha (opcional)</label>
+              <input 
+                type="password" 
+                id="perfil-senha" 
+                name="senha"
+                placeholder="Deixe vazio para não alterar" 
+                autocomplete="new-password"
+                minlength="6"
+                aria-describedby="perfil-senha-error"
+              />
+              <small class="form-hint">Mínimo 6 caracteres. Deixe vazio para manter a senha atual.</small>
+              <span class="error-message" id="perfil-senha-error"></span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                💾 Salvar Alterações
+              </button>
+              <button type="button" id="btn-cancelar" class="btn btn-outline">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>📊 Estatísticas</h2>
+        </div>
+        <div class="card-body">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-icon">🛒</span>
+              <div class="stat-content">
+                <h3 id="stat-total-compras">0</h3>
+                <p>Total de Compras</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">💰</span>
+              <div class="stat-content">
+                <h3 id="stat-total-gasto">R$ 0,00</h3>
+                <p>Total Gasto</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon">❤️</span>
+              <div class="stat-content">
+                <h3 id="stat-wishlist">0</h3>
+                <p>Itens na Wishlist</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card danger-zone">
+        <div class="card-header">
+          <h2>⚠️ Zona de Perigo</h2>
+        </div>
+        <div class="card-body">
+          <div class="danger-actions">
+            <div class="danger-item">
+              <div>
+                <h3>Limpar Todos os Dados</h3>
+                <p>Remove todas as compras e wishlist. Esta ação não pode ser desfeita.</p>
+              </div>
+              <button id="btn-limpar-dados" class="btn btn-danger btn-sm">
+                Limpar Dados
+              </button>
+            </div>
+            
+            <div class="danger-item">
+              <div>
+                <h3>Excluir Conta</h3>
+                <p>Remove permanentemente sua conta e todos os dados. Esta ação não pode ser desfeita.</p>
+              </div>
+              <button id="btn-excluir-conta" class="btn btn-danger btn-sm">
+                Excluir Conta
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="perfil-footer">
+      <p>&copy; 2025 Gerenciador de Compras. Todos os direitos reservados.</p>
+    </footer>
+  </div>
+
+  <div id="confirm-modal" class="modal" style="display: none;">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Confirmar ação</h3>
+        <button class="modal-close" aria-label="Fechar">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-message">Tem certeza que deseja continuar?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-cancel" class="btn btn-outline">Cancelar</button>
+        <button id="modal-confirm" class="btn btn-danger">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="global-loader" class="loader-overlay" style="display: none;">
+    <div class="loader"></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
