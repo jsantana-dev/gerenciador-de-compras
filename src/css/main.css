@@ -1,0 +1,39 @@
+@import url('base/reset.css');
+@import url('base/variables.css');
+@import url('components/buttons.css');
+@import url('components/forms.css');
+@import url('components/cards.css');
+@import url('components/tables.css');
+@import url('components/toast.css');
+@import url('components/modal.css');
+@import url('pages/auth.css');
+@import url('pages/dashboard.css');
+@import url('pages/perfil.css');
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg-gradient);
+  background-attachment: fixed;
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.max-w-2xl {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.loader {
+  border: 3px solid var(--color-surface);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

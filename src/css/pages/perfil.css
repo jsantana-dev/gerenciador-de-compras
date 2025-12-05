@@ -1,0 +1,217 @@
+.perfil-page {
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.perfil-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2xl);
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.perfil-header h1 {
+  font-size: var(--font-size-3xl);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-surface-dark);
+}
+
+.avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-surface-dark);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  margin-bottom: var(--spacing-sm);
+}
+
+.avatar-hint {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  margin: var(--spacing-xl) 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--font-weight-bold);
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-surface-dark);
+}
+
+.form-divider span {
+  padding: 0 var(--spacing-md);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-surface-dark);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.stat-card {
+  background-color: var(--color-surface-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  border: 1px solid transparent;
+  transition: transform var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+  font-size: var(--font-size-2xl);
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.stat-content h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+  margin: 0;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+.stat-content p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.danger-zone {
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.danger-zone .card-header {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.danger-zone h2 {
+  color: var(--color-error);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.danger-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.danger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-surface-dark);
+}
+
+.danger-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.danger-item h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+}
+
+.danger-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 80%;
+}
+
+.perfil-footer {
+  text-align: center;
+  margin-top: var(--spacing-2xl);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 600px) {
+  .perfil-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+  
+  .danger-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+  
+  .danger-item p {
+    max-width: 100%;
+  }
+  
+  .danger-item button {
+    width: 100%;
+  }
+}

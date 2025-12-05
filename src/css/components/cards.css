@@ -1,0 +1,64 @@
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-surface-dark);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.card-body {
+  padding: var(--spacing-lg);
+}
+
+.card-footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--color-surface-dark);
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.card-produto {
+  background: var(--color-surface-light);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: transform var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.card-produto:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.card-produto img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: var(--spacing-sm);
+  background: #fff;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+}
