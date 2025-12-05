@@ -84,7 +84,7 @@ class AuthManager {
       Toast.show(`Bem-vindo(a), ${usuario.nome}!`, 'success');
       
       setTimeout(() => {
-        window.location.href = 'src/pages/dashboard.html';
+        window.location.href = isInPages ? 'dashboard.html' : '/src/pages/dashboard.html';
       }, 1000);
       
       return true;
@@ -99,8 +99,8 @@ class AuthManager {
     Toast.show('Você saiu da sua conta', 'info');
     
     setTimeout(() => {
-      window.location.href = '../../index.html';
-    }, 1000);
+     window.location.href = isInPages ? '../../index.html' : 'index.html';
+  }, 1000);
   }
 
   updateUser(nome, senha = null) {
@@ -140,8 +140,7 @@ class AuthManager {
     Toast.show('Conta excluída com sucesso', 'success');
     
     setTimeout(() => {
-      const isInPages = window.location.pathname.includes('/pages/');
-      window.location.href = isInPages ? '../../index.html' : 'index.html';
+      window.location.href = '/index.html';
     }, 1500);
   }
 
@@ -149,8 +148,7 @@ class AuthManager {
     if (!this.isAuthenticated()) {
       Toast.show('Você precisa estar logado', 'warning');
       setTimeout(() => {
-        const isInPages = window.location.pathname.includes('/pages/');
-        window.location.href = isInPages ? '../../index.html' : 'index.html';
+        window.location.href = '/index.html';
       }, 1000);
       return false;
     }

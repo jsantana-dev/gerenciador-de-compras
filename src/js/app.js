@@ -20,9 +20,9 @@ function getCurrentPage() {
   const path = window.location.pathname;
   const page = path.substring(path.lastIndexOf('/') + 1);
   
-  if (!page || page === 'index.html') return 'auth';
-  if (page === 'dashboard.html') return 'dashboard';
-  if (page === 'perfil.html') return 'perfil';
+  if (!page || page === '/src/pages/index.html') return 'auth';
+  if (page === '/src/pages/dashboard.html') return 'dashboard';
+  if (page === '/src/pages/perfil.html') return 'perfil';
   
   return 'unknown';
 }
@@ -31,7 +31,7 @@ function initAuthPage() {
   console.log('Inicializando página de autenticação...');
 
   if (auth.isAuthenticated()) {
-    window.location.href = 'dashboard.html';
+    window.location.href = '/src/pages/dashboard.html'; 
     return;
   }
 
@@ -72,7 +72,7 @@ function initAuthPage() {
 
     if (auth.login(email, senha)) {
       setTimeout(() => {
-        window.location.href = 'dashboard.html';
+        window.location.href = '/src/pages/dashboard.html';
       }, 1000);
     } else {
       Loader.hide();
@@ -519,7 +519,7 @@ function initPerfilPage() {
   });
 
   btnCancelar?.addEventListener('click', () => {
-    window.location.href = 'dashboard.html';
+    window.location.href = '/src/pages/dashboard.html';
   });
 
   // Limpar dados
